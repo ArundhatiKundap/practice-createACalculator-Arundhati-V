@@ -40,7 +40,15 @@ do {
         findMaxMin(ArrayofNumbers)
 
     } else if (choice === 5) {
-        console.log("Random number (0-1):", calcRandom());
+        let random1 = Number(readlineSync.question("Enter a number between 1 to 50: "))
+        let random2 = Number(readlineSync.question("Enter a number between 1 to 50: "))
+        if (random1 > 0 && random2 > 0 && random2 < 51 && random1 < 51) {
+            console.log("Random number :", calcRandom(random1, random2));
+        }
+        else {
+
+            console.log("Enter Number between 1 to 50");
+        }
 
     } else if (choice === 6) {
         let roundNum = Number(readlineSync.question("Enter a number: "));
@@ -87,8 +95,11 @@ function findMaxMin(ArrayofNumbers) {
     console.log("Minimum:", min);
 }
 
-function calcRandom() {
-    return Math.random();
+function calcRandom(max, min) {
+   
+
+       return Math.floor(Math.random() * (max - min + 1)) + min; 
+   
 }
 
 function calcRounding(num) {
